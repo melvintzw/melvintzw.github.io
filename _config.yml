@@ -1,2 +1,3 @@
 name: Melvin Tan
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
