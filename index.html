@@ -2,7 +2,22 @@
 layout: default
 title: Melvin Tan
 ---
+<script>
+function httpGet(theUrl)
+{
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+	xmlHttp.send( null );
+	return xmlHttp.response;
+}
+</script>
+	
+<script>
+	response = httpGet("https://m2gkezxnt4.execute-api.ap-southeast-1.amazonaws.com/default");
+	document.getElementById("dataviz1").innerHTML = response.body;	
+</script>
+
 <div class="blurb">
 	<h1>Hi there, I'm Melvin!</h1>
-	<p>Hi there, I'm learning web development. <a href="/about">Read more.</a></p>
+	<p id="dataviz1">Hi there, I'm learning web development. <a href="/about">Read more.</a></p>
 </div><!-- /.blurb -->
