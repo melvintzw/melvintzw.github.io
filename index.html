@@ -2,27 +2,23 @@
 layout: default
 title: Melvin Tan
 ---
-<script>
-function httpGetAsync(theUrl, callback)
-{
-	console.log('calling API...');
-	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-			console.log('successful API call.');
-			return xmlHttp.response;
-	}
-	xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-	xmlHttp.send(null);
-}
-</script>
-	
-<script>
-	response = httpGetAsync("https://o7s3gpqfhf.execute-api.ap-southeast-1.amazonaws.com/api/bokeh/plot", null);
-	document.getElementById("dataviz1").innerHTML = response.body;
-</script>
-
 <div class="blurb">
 	<h1>Hi there, I'm Melvin!</h1>
 	<p id="dataviz1">Hi there, I'm learning web development. <a href="/about">Read more.</a></p>
-</div><!-- /.blurb -->
+</div><!-- /.blurb -->	
+<script>
+	function httpGetAsync(theUrl, callback) {
+		console.log('calling API...');
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange = function() { 
+		if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+				console.log('successful API call.');
+				return xmlHttp.response;
+		}
+		xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+		xmlHttp.send(null);
+	}
+
+	response = httpGetAsync("https://o7s3gpqfhf.execute-api.ap-southeast-1.amazonaws.com/api/bokeh/plot", null);
+	document.getElementById("dataviz1").innerHTML = response.body;
+</script>
