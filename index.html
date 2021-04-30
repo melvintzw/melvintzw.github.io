@@ -14,6 +14,7 @@ title: Melvin Tan
 		xmlHttp.onreadystatechange = function() { 
 			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
 					console.log('successful API call.');
+					console.log(xmlHttp.responseText)
 					return xmlHttp.responseText;
 			}
 		}
