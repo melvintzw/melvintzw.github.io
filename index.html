@@ -16,7 +16,7 @@ function httpGetAsync(theUrl, callback)
 </script>
 	
 <script>
-	response = httpGet("https://o7s3gpqfhf.execute-api.ap-southeast-1.amazonaws.com/api/bokeh/plot");
+	response = httpGetAsync("https://o7s3gpqfhf.execute-api.ap-southeast-1.amazonaws.com/api/bokeh/plot", null);
 	document.getElementById("dataviz1").innerHTML = response.body;
 </script>
 
