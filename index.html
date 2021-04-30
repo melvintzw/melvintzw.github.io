@@ -11,9 +11,10 @@ title: Melvin Tan
 		console.log('calling API...');
 		var xmlHttp = new XMLHttpRequest();
 		xmlHttp.onreadystatechange = function() { 
-		if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-				console.log('successful API call.');
-				return xmlHttp.response;
+			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+					console.log('successful API call.');
+					return xmlHttp.response;
+			}
 		}
 		xmlHttp.open("GET", theUrl, true); // true for asynchronous 
 		xmlHttp.send(null);
@@ -22,3 +23,4 @@ title: Melvin Tan
 	response = httpGetAsync("https://o7s3gpqfhf.execute-api.ap-southeast-1.amazonaws.com/api/bokeh/plot", null);
 	document.getElementById("dataviz1").innerHTML = response.body;
 </script>
+
