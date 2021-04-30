@@ -11,7 +11,7 @@ function httpGetAsync(theUrl, callback)
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
 			console.log('successful API call.');
 			return xmlHttp.response;
-    }
+	}
 	xmlHttp.open("GET", theUrl, true); // true for asynchronous 
 	xmlHttp.send(null);
 }
