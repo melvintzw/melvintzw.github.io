@@ -6,6 +6,8 @@ title: Melvin Tan
 	<h1>Hi there, I'm Melvin!</h1>
 	<p id="dataviz1">Hi there, I'm learning web development. <a href="/about">Read more.</a></p>
 </div><!-- /.blurb -->	
+<div class='bokeh-plot' id='myplot'>
+</div>
 <script>
 	function httpGetAsync(theUrl, callback) {
 		console.log('calling API...');
@@ -15,12 +17,11 @@ title: Melvin Tan
 			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
 					console.log('successful API call.');
 					console.log(xmlHttp.response);
-					var val = JSON.parse(xmlHttp.response)
-					console.log(val);
-					console.log(val.body);
-					document.getElementById("dataviz1").innerHTML = val.body;
-
-				return val;
+					var response_json = JSON.parse(xmlHttp.response)
+					console.log(response_json);
+					console.log(response_json.body);
+					plot = JSON.parse(response_json.body);
+					Bokeh.embed.embed_item(plot);	
 			}
 		}
 		xmlHttp.open("GET", theUrl, true); // true for asynchronous 
