@@ -37,7 +37,7 @@ title: Melvin Tan
 					console.log(response_json);
 					console.log(response_json.body);
 					plot = JSON.parse(response_json.body);
-					Bokeh.embed.embed_item(plot);	
+					Bokeh.embed.embed_item(plot, 'myplot');	
 			}
 		}
 		xmlHttp.open("GET", theUrl, true); // true for asynchronous 
