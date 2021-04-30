@@ -10,12 +10,12 @@ title: Melvin Tan
 	function httpGetAsync(theUrl, callback) {
 		console.log('calling API...');
 		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.responseType = 'text'
+		xmlHttp.responseType = 'json'
 		xmlHttp.onreadystatechange = function() { 
 			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
 					console.log('successful API call.');
-					console.log(xmlHttp.responseText)
-					return xmlHttp.responseText;
+					console.log(xmlHttp.response.body)
+					return xmlHttp.response;
 			}
 		}
 		xmlHttp.open("GET", theUrl, true); // true for asynchronous 
