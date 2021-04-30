@@ -7,13 +7,13 @@ function httpGetAsync(theUrl, callback)
 {
 	console.log('calling API...');
 	var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
+	xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
 			console.log('successful API call.');
 			return xmlHttp.response;
     }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-    xmlHttp.send(null);
+	xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+	xmlHttp.send(null);
 }
 </script>
 	
