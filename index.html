@@ -7,10 +7,11 @@ title: Melvin Tan
 	<p id="dataviz1">Hi there, I'm learning web development. <a href="/about">Read more.</a></p>
 </div><!-- /.blurb -->	
 
-<div class='bokeh-plot' id='myplot'>
+<div class='dynamic_element' id='myplot'>
+	<p id="dbresponse"></p>
 </div>
 
-<script>
+<!-- <script>
 	var Bokeh = document.createElement('script');
 	Bokeh.setAttribute('src','https://cdn.bokeh.org/bokeh/release/bokeh-2.3.1.min.js');
 	document.head.appendChild(Bokeh);
@@ -22,7 +23,7 @@ title: Melvin Tan
 	var Bokeh_Widgets = document.createElement('script');
 	Bokeh_Widgets.setAttribute('src','https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.1.min.js');
 	document.head.appendChild(Bokeh_Widgets);
-</script>
+</script> -->
 
 <script>
 	function httpGetAsync(theUrl, callback) {
@@ -33,17 +34,18 @@ title: Melvin Tan
 			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
 					console.log('successful API call.');
 					console.log(xmlHttp.response);
-					var response_json = JSON.parse(xmlHttp.response)
-					console.log(response_json);
-					console.log(response_json.body);
-					plot = JSON.parse(response_json.body);
-					Bokeh.embed.embed_item(plot, 'myplot');	
+					document.getElementById("dbresponse").innerHTML = xmlHttp.response;
+// 					var response_json = JSON.parse(xmlHttp.response)
+// 					console.log(response_json);
+// 					console.log(response_json.body);
+// 					plot = JSON.parse(response_json.body);
+// 					Bokeh.embed.embed_item(plot, 'myplot');	
 			}
 		}
 		xmlHttp.open("GET", theUrl, true); // true for asynchronous 
 		xmlHttp.send(null);
 	}
 
-	resp = httpGetAsync("https://o7s3gpqfhf.execute-api.ap-southeast-1.amazonaws.com/api/bokeh/plot", null);
+	httpGetAsync("https://rawrrnitzk.execute-api.ap-southeast-1.amazonaws.com/api/db/selectall", null);
 </script>
 
